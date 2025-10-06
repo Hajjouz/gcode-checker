@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+G-Code Checker for CNC 3-Axis
+Tool for validating and visualizing G-code with image output
 """
 
 import re
@@ -165,7 +167,7 @@ class GCodeChecker:
                 self.warnings.append(f"Subprogram P{call} called but not defined")
 
         # Check for unused subprograms
-        for prog in self.main_programs[1:]:  
+        for prog in self.main_programs[1:]:  # Skip main program
             if prog not in self.program_calls:
                 self.warnings.append(f"Subprogram O{prog} defined but never called")
 
